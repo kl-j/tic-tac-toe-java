@@ -6,7 +6,7 @@ package com.mycompany.tic.tac.toe;
 
 /**
  *tictactoe game implementation
- * @author Jade
+ * @author JNSJ, SSDV
  */
 
 
