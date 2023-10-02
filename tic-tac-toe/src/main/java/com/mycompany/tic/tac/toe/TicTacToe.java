@@ -37,18 +37,27 @@ public class TicTacToe {
         Scanner scan = new Scanner(System.in);
         System.out.println("Introduce la casilla que quieres jugar (1-9)");
         int playerPos = scan.nextInt();
+        while(playerPositions.contains(playerPos) || cpuPositions.contains(playerPos)){ //check if its playerPos or player.positions?
+            System.out.println("Posición ocupada. Escoge otra");
+            playerPos = scan.nextInt();
+            
+        }
        
         placePiece(gameBoard, playerPos, "player");
         //turn rand into method for cpu
         Random rand = new Random();
         int cpuPos = rand.nextInt(9)+1;
+        while(playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)){ //check if its cpuPos or 
+            cpuPos = rand.nextInt(9)+1;
+            
         placePiece(gameBoard, cpuPos, "cpu"); 
         
         printGameBoard(gameBoard);
          
         String result = checkWinner();
          System.out.println(result);
-     }  
+     }  }
+     
      }
         
     public static void printGameBoard(char[][] gameBoard) {
