@@ -188,9 +188,11 @@ package com.mycompany.tic.tac.toe;
                  return "Felicidades, ganaste!";
              }else if(cpuPositions.containsAll(l)){
                  return "Perdiste :c";
-             }else if(playerPositions.size()+ cpuPositions.size() == 9){
-                 return "EMPATE";
              }
+          if (playerPositions.size() + cpuPositions.size() == 9) {
+            return "Empate!";
+}
+                 
          }
          return "";
      }
