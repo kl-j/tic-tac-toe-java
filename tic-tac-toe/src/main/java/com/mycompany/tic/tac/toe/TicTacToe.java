@@ -12,21 +12,34 @@ package com.mycompany.tic.tac.toe;
 
 
 public class TicTacToe {
+    
+  
+    
      public static void main(String[] args) {
          
-         
-         char[][] gameBoard = new char[3][3];
-         System.out.println("-------------");
-        for (int i = 0; i < 3; i++) {
-            System.out.print("| ");
-            for (int j = 0; j < 3; j++) {
-                System.out.print(gameBoard[i][j] + " | ");
+           
+    char[][] gameBoard = {{' ','|',' ','|',' '},
+                          {'-','+','-','+','-'},
+                          {' ','|',' ','|',' '},
+                          {'-','+','-','+','-'},
+                          {' ','|',' ','|',' '}};
+    printGameBoard(gameBoard);
+     }
+     
+     Scanner scan = new Scanner(System.in);
+     System.out.println("Introduce la casilla que quieres jugar (1-9)");
+     int pos = scan.nextInt();
+     
+        
+     
+    public static void printGameBoard(char[][] gameBoard) {
+        for(char[] row:gameBoard) {
+            for(char c: row) {
+                System.out.print(c);
             }
             System.out.println();
-            System.out.println("-------------");
-         //{{ },{|},{ }, {|}, { }};
-         
-         
+        }
+    
      }
 }
     
