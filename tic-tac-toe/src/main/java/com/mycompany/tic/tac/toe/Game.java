@@ -5,10 +5,11 @@
 package com.mycompany.tic.tac.toe;
 
 /**
- *
+ *tictactoe game implementation
  * @author Jade
  */
-//USED UTILITIES
+
+
  import java.util.Random;
  import java.util.Scanner;
  import java.util.Arrays;
@@ -17,9 +18,22 @@ package com.mycompany.tic.tac.toe;
  
  public class Game {
      
-     private ArrayList<Integer> playerPositions = new ArrayList<Integer>();
-     private ArrayList<Integer> cpuPositions = new ArrayList<Integer>();
+     private ArrayList<Integer> playerPositions;
+     private ArrayList<Integer> cpuPositions;
      
+     
+     //CONSTRUCTOR
+     public Game(){
+         
+         playerPositions = new ArrayList<>();
+         cpuPositions = new ArrayList<>();
+     }
+     
+     /**
+     * Starts and manages the game loop.
+     * No parameters
+     * returns void
+     */
     public void play() {     
      char[][] gameBoard = {{' ','|',' ','|',' '},
                            {'-','+','-','+','-'},
@@ -31,7 +45,7 @@ package com.mycompany.tic.tac.toe;
  
       while(true){
                
-         //read move
+         //read player's move
          Scanner scan = new Scanner(System.in);
          System.out.println("Introduce la casilla que quieres jugar (1-9)");
          int playerPos = scan.nextInt();
@@ -67,15 +81,31 @@ package com.mycompany.tic.tac.toe;
         }
     }
          
+    
+     /**
+     * Prints the game board to the console.
+     *
+     * @param gameBoard (char array) The game board to be printed.
+     * returns void
+     */
      public static void printGameBoard(char[][] gameBoard) {
-         for(char[] row:gameBoard) {
-             for(char c: row) {
+         for(char[] row : gameBoard) {
+             for(char c : row) {
                  System.out.print(c);
              }
              System.out.println();
          }
      
       }
+     
+     /**
+     * Places a player's or CPU's piece on the game board.
+     *
+     * @param gameBoard The game board.
+     * @param pos       The position where the piece is to be placed (1-9).
+     * @param user      The user (player or cpu).
+     */
+     
      public void placePiece(char[][] gameBoard, int pos, String user){
          char symbol = ' ';
          
@@ -119,6 +149,14 @@ package com.mycompany.tic.tac.toe;
               break;
       }
      }
+     
+     
+      /**
+     * Checks if a player or the CPU has won or if it's a draw.
+     *No parameter
+     * @return The result message indicating the game outcome.
+     */
+     
      public String checkWinner(){
          
          List topRow = Arrays.asList(1,2,3);
